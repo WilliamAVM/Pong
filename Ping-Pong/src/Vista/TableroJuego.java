@@ -1,19 +1,16 @@
 package Vista;
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.Rectangle;
 import java.awt.geom.Rectangle2D;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
 import Modelo.Pelota;
 import Modelo.Raqueta;
-import sun.java2d.loops.CompositeType;
-import sun.java2d.loops.DrawLine;
-import sun.java2d.loops.SurfaceType;
 
 /**
  *
