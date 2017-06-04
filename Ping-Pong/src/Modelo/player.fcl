@@ -1,0 +1,23 @@
+FUNCTION_BLOCK player
+
+
+//definiendo las entradas y salidas
+
+VAR_INPUT
+	pelotaX: REAL;
+	pelotaY: REAL;
+END_VAR
+
+VAR_OUTPUT
+	movimiento:REAL;
+END_VAR
+
+FUZZYFY pelotaX
+	TERM cerca := (0,1) (4,0);
+	TERM medio := (1,0) (4,1) (6,1) (9,0);
+	TERM lejos := (6,0) (9,1);
+END_FUZZYFY
+	
+
+
+END_FUNCTION_BLOCK
