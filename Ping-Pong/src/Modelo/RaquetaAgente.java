@@ -28,7 +28,8 @@ public class RaquetaAgente {
 		return new Rectangle2D.Double(x, y, 15, 60);
 	}
 
-	public void mover(TableroJuego tj) {
+	public void mover() {
+		TableroJuego tj = TableroJuego.getInstance();
 		int dx = Math.abs(tj.pelota.x-x);
     	int dy = -1*(tj.pelota.y-y);
     	int dxp = (dx*100)/tj.width;
