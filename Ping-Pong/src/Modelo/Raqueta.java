@@ -9,7 +9,7 @@ import Vista.TableroJuego;
 public class Raqueta {
 
 	private ControlJugadores cJugadores = ControlJugadores.cJugadores;
-	private int x, y;
+	public int x, y;
 	private int dy = 1;
 
 	public Raqueta(int x, int y) {

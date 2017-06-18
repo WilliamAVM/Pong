@@ -20,13 +20,11 @@ import Modelo.RaquetaAgente;
  * @author william
  */
 public class TableroJuego extends JPanel {
-	
+	//singleton
     private static final TableroJuego INSTANCE = new TableroJuego();
-	
-	
-	
+		
 	public Pelota pelota;
-	public Raqueta r1;
+	public RaquetaAgente r1;
 	public RaquetaAgente r2;
 	
 	public int height = 500;
@@ -37,7 +35,7 @@ public class TableroJuego extends JPanel {
     private TableroJuego() {        
     	//inicializando elementos
     	pelota= new Pelota(400, 200);
-    	r1 = new Raqueta(10,300);
+    	r1 = new RaquetaAgente(10,300);
     	r2 = new RaquetaAgente(770,200);
     	
     	
@@ -75,8 +73,7 @@ public class TableroJuego extends JPanel {
     
     public void Actualizar(){
         pelota.mover(getBounds(),coolision(r1.getRaqueta()),coolision(r2.getRaqueta()));
-        r1.mover();
-        System.out.println(r2.x+" , " + r2.y);        
+        r1.mover();               
         r2.mover();        
     }
     
