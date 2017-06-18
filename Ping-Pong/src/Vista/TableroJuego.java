@@ -75,7 +75,7 @@ public class TableroJuego extends JPanel {
     
     public void Actualizar(){
         pelota.mover(getBounds(),coolision(r1.getRaqueta()),coolision(r2.getRaqueta()));
-        r1.MoverRaqueta1(getBounds());
+        r1.mover();
         System.out.println(r2.x+" , " + r2.y);        
         r2.mover();        
     }

@@ -4,6 +4,7 @@ import java.awt.Rectangle;
 import java.awt.geom.Rectangle2D;
 
 import Control.ControlJugadores;
+import Vista.TableroJuego;
 
 public class Raqueta {
 
@@ -20,7 +21,17 @@ public class Raqueta {
 		return new Rectangle2D.Double(x, y, 15, 60);
 	}
 
-	public void MoverRaqueta1(Rectangle limites) {
+	public void mover(){
+		TableroJuego tj = TableroJuego.getInstance();
+		if((tj.width/2)<x){
+			MoverRaqueta2(tj.getBounds());
+		}else{
+			MoverRaqueta1(tj.getBounds());
+		}
+	}
+	
+	
+	private void MoverRaqueta1(Rectangle limites) {
 		if (y > limites.getMinY()) {
 			if (cJugadores.w) {
 				y--;
@@ -33,7 +44,7 @@ public class Raqueta {
 		}
 	}
 
-	public void MoverRaqueta2(Rectangle limites) {
+	private void MoverRaqueta2(Rectangle limites) {
 		if (y > limites.getMinY()) {
 			if (cJugadores.arriba) {
 				y--;
