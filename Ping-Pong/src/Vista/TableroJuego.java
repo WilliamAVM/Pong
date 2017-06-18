@@ -34,7 +34,7 @@ public class TableroJuego extends JPanel {
     
     public TableroJuego() {
         agent = new Agent();
-    	
+    	setBounds(0,0,width, height);
     	setBackground(Color.DARK_GRAY);
        
         puntage1 = new JLabel("puntaje");
@@ -53,7 +53,7 @@ public class TableroJuego extends JPanel {
     }
     
     public void Dibujar(Graphics2D g){
-        g.drawLine(380, 500,380, 0);
+        g.drawLine(width/2, height,width/2, 0);
         g.fill(pelota.getPelota());
         g.fill(r1.getRaqueta());
         g.fill(r2.getRaqueta());

@@ -15,7 +15,7 @@ public class ControlJugadores extends KeyAdapter {
 	public static boolean w, s, arriba, abajo;
 	public ControlJugadores(){
 		
-		System.out.println("soy Control jugadores ");
+		
 		cAgent = ControlAgent.cAgent;
 	}
     @Override

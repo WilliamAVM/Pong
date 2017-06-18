@@ -6,12 +6,13 @@ import java.awt.geom.Rectangle2D;
 import Control.ControlJugadores;
 
 public class RaquetaAgente {
-	
-	public boolean arriba, abajo;
+	private Agent agent;
+	private boolean arriba, abajo;
 	public int x, y;
 	private int dy = 1;
 
 	public RaquetaAgente(int x, int y) {
+		agent = new Agent();
 		this.x = x;
 		this.y = y;
 	}
@@ -25,6 +26,8 @@ public class RaquetaAgente {
 	}
 
 	public void mover(Rectangle limites, boolean arriba, boolean abajo) {
+		
+		
 		if (y > limites.getMinY()) {
 			if (arriba) {
 				y--;
