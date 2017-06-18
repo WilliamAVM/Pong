@@ -30,6 +30,7 @@ public class Pelota {
     public Rectangle2D getPelota() {
         return new Rectangle2D.Double(x, y, 20, 20);
     }
+        
     
     private void acelerar(){
     	

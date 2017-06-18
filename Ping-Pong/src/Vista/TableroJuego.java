@@ -25,12 +25,12 @@ public class TableroJuego extends JPanel {
 		
 	public Pelota pelota;
 	public RaquetaAgente r1;
-	public RaquetaAgente r2;
+	public Raqueta r2;
 	
 	public int height = 500;
 	public int width = 800;
 	
-	private int ptj1,ptj2;
+	private int ptj1,ptj2,ptjmax;
     
 	public JLabel puntaje1,puntaje2,jugador1,jugador2;
     
@@ -38,11 +38,11 @@ public class TableroJuego extends JPanel {
     	//inicializando elementos
     	pelota= new Pelota(400, 200);
     	r1 = new RaquetaAgente(10,300);
-    	r2 = new RaquetaAgente(770,200);
+    	r2 = new Raqueta(770,200);
     	//puntajes
     	ptj1 = 0;
     	ptj2 = 0;
-    	
+    	ptjmax = 2;
     	
     	setBounds(0,0,width, height);
     	setBackground(Color.DARK_GRAY);
@@ -106,6 +106,12 @@ public class TableroJuego extends JPanel {
     
     
    public void mostrarScore(){
+	   if(ptj1==ptjmax && ptj1>ptj2){
+		   puntaje1.setText("GANADOR JUGADOR 1");
+	   }
+	   if(ptj2==ptjmax && ptj1<ptj2){
+		   puntaje1.setText("GANADOR JUGADOR 2");
+	   }
 	   jugador1.setText(""+ptj1);
 	   jugador2.setText(""+ptj2);
    }

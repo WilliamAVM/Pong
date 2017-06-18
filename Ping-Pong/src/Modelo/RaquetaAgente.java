@@ -30,10 +30,10 @@ public class RaquetaAgente {
 
 	public void mover() {
 		TableroJuego tj = TableroJuego.getInstance();
-		int dx = Math.abs(tj.pelota.x-x);
-    	int dy = -1*(tj.pelota.y-y);
-    	int dxp = (dx*100)/tj.width;
-    	int dyp = (dy*100)/tj.height;
+		int dxx = Math.abs(tj.pelota.x-x);
+    	int dyy = -1*(tj.pelota.y-y);
+    	int dxp = (dxx*100)/tj.width;
+    	int dyp = (dyy*100)/tj.height;
     	//asignando    	
     	agent.input(dxp, dyp);
     	arriba = false;
@@ -47,12 +47,12 @@ public class RaquetaAgente {
     	}
 		if (y > tj.getBounds().getMinY()) {
 			if (arriba) {
-				y--;
+				y-=dy;
 			}
 		}
 		if (y < 410) {
 			if (abajo) {
-				y++;
+				y+=dy;
 			}
 		}
 

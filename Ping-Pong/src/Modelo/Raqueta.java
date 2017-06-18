@@ -34,12 +34,12 @@ public class Raqueta {
 	private void MoverRaqueta1(Rectangle limites) {
 		if (y > limites.getMinY()) {
 			if (cJugadores.w) {
-				y--;
+				y-=dy;
 			}
 		}
 		if (y < 410) {
 			if (cJugadores.s) {
-				y++;
+				y+=dy;
 			}
 		}
 	}
@@ -47,12 +47,12 @@ public class Raqueta {
 	private void MoverRaqueta2(Rectangle limites) {
 		if (y > limites.getMinY()) {
 			if (cJugadores.arriba) {
-				y--;
+				y-=dy;
 			}
 		}
 		if (y < 410) {
 			if (cJugadores.abajo) {
-				y++;
+				y+=dy;
 			}
 		}
 
