@@ -34,7 +34,7 @@ public class Menu extends JFrame{
 		setContentPane(panel);
 		
 		titulo= new JLabel();
-		titulo.setIcon(new javax.swing.ImageIcon("C:/Users/willi/workspace/Ping Pong/Imagenes/Titulo.png"));
+		titulo.setIcon(new javax.swing.ImageIcon("../src/multimedia/Titulo.png"));
 		titulo.setBounds(290, -200, 400, 500);
 		panel.add(titulo);
 		
@@ -46,7 +46,7 @@ public class Menu extends JFrame{
 		panel.add(salir);
 		
 		fondoParaGif = new JLabel();
-		fondoParaGif.setIcon(new javax.swing.ImageIcon("C:/Users/willi/workspace/Ping Pong/Imagenes/fondoPrincipal.gif"));
+		fondoParaGif.setIcon(new javax.swing.ImageIcon("../src/mulltimedia/fondoPrincipal.gif"));
 		fondoParaGif.setBounds(0,0, 900, 600);
 		panel.add(fondoParaGif);
 		

@@ -2,7 +2,7 @@
  * 
  */
 /**
- * @author willi
+ * @author william
  *
  */
 package Control;

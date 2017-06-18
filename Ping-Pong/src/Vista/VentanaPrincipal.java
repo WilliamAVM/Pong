@@ -1,8 +1,8 @@
 package Vista;
 
-import Control.Teclado;
+import Control.Hilo;
+import Control.ControlJugadores;
 import javax.swing.JFrame;
-import Modelo.Hilo;
 
 /**
  *
@@ -20,7 +20,7 @@ public class VentanaPrincipal extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         tj = new TableroJuego();
         add(tj);
-        addKeyListener(new Teclado());
+        addKeyListener(new ControlJugadores());
         setVisible(true);
         hilo = new Hilo(tj);
         hilo.start();

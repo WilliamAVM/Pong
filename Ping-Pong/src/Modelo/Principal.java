@@ -4,7 +4,7 @@ import Vista.VentanaPrincipal;
 
 /**
  *
- * @author willi
+ * @author william
  */
 public class Principal {
 

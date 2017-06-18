@@ -9,13 +9,22 @@ import java.awt.geom.Rectangle2D;
  */
 public class Pelota {
 
-    private int x, y;
+    public static Pelota pelota= new Pelota();
+	
+	public int x, y;
     private int dx=1, dy=1;
+    
+    public Pelota() {
+        this.x = 400;
+        this.y = 200;
+    }
+    
+    
     public Pelota(int x, int y) {
         this.x = x;
         this.y = y;
     }
-
+    
     public Rectangle2D getPelota() {
         return new Rectangle2D.Double(x, y, 20, 20);
     }
