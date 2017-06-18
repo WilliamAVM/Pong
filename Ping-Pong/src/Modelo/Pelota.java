@@ -28,6 +28,10 @@ public class Pelota {
     public Rectangle2D getPelota() {
         return new Rectangle2D.Double(x, y, 20, 20);
     }
+    
+    private void acelerar(){
+    	
+    }
 
     public void mover(Rectangle limites, boolean colisionR1, boolean colisionR2) {
         x+=dx;

@@ -93,9 +93,9 @@ public class TableroJuego extends JPanel {
     	int dyp = (dy*100)/height;
     	//asignando    	
     	agent.input(dxp, dyp);
-    	boolean mov = true;
-    	if(agent.output()>=0){
-    		mov= false;
+    	boolean mov = false;
+    	if(agent.output()>0){
+    		mov= true;
     	}    	
     	return mov;
     }
@@ -109,7 +109,7 @@ public class TableroJuego extends JPanel {
     	//asignando   
     	agent.input(dxp,dyp);
     	boolean mov = false;
-    	if(agent.output()>=0){
+    	if(agent.output()<0){
     		mov= true;
     	}    	
     	return mov;
