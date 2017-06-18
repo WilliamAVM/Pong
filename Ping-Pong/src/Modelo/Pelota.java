@@ -13,12 +13,17 @@ public class Pelota {
 
     public static Pelota pelota= new Pelota();
 	
-	public int x, y;
+	public int x, y,cx,cy,r=20;
     private int dx=1, dy=1;
     
     public Pelota() {
         this.x = 400;
         this.y = 200;
+    }
+    
+    private void calcularCentros(){
+    	cx = x + r/2;
+    	cy = y + r/2;
     }
     
     
@@ -28,7 +33,8 @@ public class Pelota {
     }
     
     public Rectangle2D getPelota() {
-        return new Rectangle2D.Double(x, y, 20, 20);
+    	calcularCentros();
+        return new Rectangle2D.Double(x, y, r, r);
     }
         
     
@@ -63,5 +69,6 @@ public class Pelota {
             dy=-dy;
         }
         tj.mostrarScore();
+        
     }
 }

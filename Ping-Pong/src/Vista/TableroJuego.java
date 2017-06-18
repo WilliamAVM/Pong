@@ -48,7 +48,7 @@ public class TableroJuego extends JPanel {
     	setBackground(Color.DARK_GRAY);
        
         puntaje1 = new JLabel("puntaje");
-        puntaje1.setForeground(Color.LIGHT_GRAY);
+        puntaje1.setForeground(Color.WHITE);
         /*puntage1.setFont(new Font("Digifacewide", Font.BOLD, 18));
         
         */add(puntaje1);
@@ -57,8 +57,8 @@ public class TableroJuego extends JPanel {
         //score
         jugador1 = new JLabel(""+ptj1);
         jugador2 = new JLabel(""+ptj2);
-        jugador1.setForeground(Color.LIGHT_GRAY);
-        jugador2.setForeground(Color.LIGHT_GRAY);
+        jugador1.setForeground(Color.WHITE);
+        jugador2.setForeground(Color.WHITE);
         add(jugador1);
         add(jugador2);
     }
