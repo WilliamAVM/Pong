@@ -29,16 +29,19 @@ public class TableroJuego extends JPanel {
 	
 	public int height = 500;
 	public int width = 800;
+	
+	private int ptj1,ptj2;
     
-	public JLabel puntaje1,puntaje2;
+	public JLabel puntaje1,puntaje2,jugador1,jugador2;
     
     private TableroJuego() {        
     	//inicializando elementos
     	pelota= new Pelota(400, 200);
     	r1 = new RaquetaAgente(10,300);
     	r2 = new RaquetaAgente(770,200);
-    	
-    	
+    	//puntajes
+    	ptj1 = 0;
+    	ptj2 = 0;
     	
     	
     	setBounds(0,0,width, height);
@@ -49,6 +52,15 @@ public class TableroJuego extends JPanel {
         /*puntage1.setFont(new Font("Digifacewide", Font.BOLD, 18));
         
         */add(puntaje1);
+        
+        
+        //score
+        jugador1 = new JLabel(""+ptj1);
+        jugador2 = new JLabel(""+ptj2);
+        jugador1.setForeground(Color.LIGHT_GRAY);
+        jugador2.setForeground(Color.LIGHT_GRAY);
+        add(jugador1);
+        add(jugador2);
     }
     
     public static TableroJuego getInstance(){
@@ -91,6 +103,12 @@ public class TableroJuego extends JPanel {
     private boolean coolision(Rectangle2D r){
         return pelota.getPelota().intersects(r);
     }
+    
+    
+   private void mostrarScore(){
+	   jugador1.setText(""+ptj1);
+	   jugador2.setText(""+ptj2);
+   }
     
     
 }
