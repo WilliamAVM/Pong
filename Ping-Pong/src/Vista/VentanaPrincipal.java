@@ -18,7 +18,7 @@ public class VentanaPrincipal extends JFrame {
         setLocationRelativeTo(null);
         setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        tj = new TableroJuego();
+        tj = TableroJuego.getInstance();
         add(tj);
         addKeyListener(new ControlJugadores());
         setVisible(true);

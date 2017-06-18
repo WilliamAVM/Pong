@@ -21,28 +21,42 @@ import Modelo.RaquetaAgente;
  */
 public class TableroJuego extends JPanel {
 	
-    private Agent agent;
+    private static final TableroJuego INSTANCE = new TableroJuego();
 	
-	private Pelota pelota= new Pelota(400, 200);
-	private Raqueta r1 = new Raqueta(10,300);
-	private RaquetaAgente r2 = new RaquetaAgente(770,200);
 	
-	private int height = 500;
-	private int width = 800;
+	
+	public Pelota pelota;
+	public Raqueta r1;
+	public RaquetaAgente r2;
+	
+	public int height = 500;
+	public int width = 800;
     
-	public JLabel puntage1,puntage2;
+	public JLabel puntaje1,puntaje2;
     
-    public TableroJuego() {
-        agent = new Agent();
+    private TableroJuego() {        
+    	//inicializando elementos
+    	pelota= new Pelota(400, 200);
+    	r1 = new Raqueta(10,300);
+    	r2 = new RaquetaAgente(770,200);
+    	
+    	
+    	
+    	
     	setBounds(0,0,width, height);
     	setBackground(Color.DARK_GRAY);
        
-        puntage1 = new JLabel("puntaje");
-        puntage1.setForeground(Color.LIGHT_GRAY);
+        puntaje1 = new JLabel("puntaje");
+        puntaje1.setForeground(Color.LIGHT_GRAY);
         /*puntage1.setFont(new Font("Digifacewide", Font.BOLD, 18));
         
-        */add(puntage1);
+        */add(puntaje1);
     }
+    
+    public static TableroJuego getInstance(){
+    	return INSTANCE;
+    } 
+    
     @Override
     public void paintComponent(Graphics g){
         super.paintComponent(g);
@@ -62,11 +76,8 @@ public class TableroJuego extends JPanel {
     public void Actualizar(){
         pelota.mover(getBounds(),coolision(r1.getRaqueta()),coolision(r2.getRaqueta()));
         r1.MoverRaqueta1(getBounds());
-        System.out.println(r2.x+" , " + r2.y);
-        boolean arriba = getMovAgentArriba();
-        boolean abajo = getMovAgentAbajo();
-        r2.mover(getBounds(),arriba,abajo);
-        
+        System.out.println(r2.x+" , " + r2.y);        
+        r2.mover(this);        
     }
     
     public void Iterarjuego(){
@@ -84,38 +95,5 @@ public class TableroJuego extends JPanel {
         return pelota.getPelota().intersects(r);
     }
     
-    
-    private boolean getMovAgentArriba(){
-    	//inputs agent
-    	int dx = Math.abs(pelota.x-r2.x);
-    	int dy = -1*(pelota.y-r2.y);
-    	int dxp = (dx*100)/width;
-    	int dyp = (dy*100)/height;
-    	//asignando    	
-    	agent.input(dxp, dyp);
-    	boolean mov = false;
-    	if(agent.output()>0){
-    		mov= true;
-    	}    	
-    	return mov;
-    }
-    
-    private boolean getMovAgentAbajo(){
-    	//inputs agent
-    	int dx = Math.abs(pelota.x-r2.x);
-    	int dy = -1*(pelota.y-r2.y);
-    	int dxp = (dx*100)/width;
-    	int dyp = (dy*100)/height;
-    	//asignando   
-    	agent.input(dxp,dyp);
-    	boolean mov = false;
-    	if(agent.output()<0){
-    		mov= true;
-    	}    	
-    	return mov;
-    }
-    
-    
-       
     
 }
