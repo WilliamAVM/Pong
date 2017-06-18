@@ -105,9 +105,17 @@ public class TableroJuego extends JPanel {
     }
     
     
-   private void mostrarScore(){
+   public void mostrarScore(){
 	   jugador1.setText(""+ptj1);
 	   jugador2.setText(""+ptj2);
+   }
+   
+   public void puntoR1(){
+	   ptj1++;
+   }
+   
+   public void puntoR2(){
+	   ptj2++;
    }
     
     

@@ -3,6 +3,8 @@ package Modelo;
 import java.awt.Rectangle;
 import java.awt.geom.Rectangle2D;
 
+import Vista.TableroJuego;
+
 /**
  *
  * @author willi
@@ -34,7 +36,8 @@ public class Pelota {
     }
 
     public void mover(Rectangle limites, boolean colisionR1, boolean colisionR2) {
-        x+=dx;
+        TableroJuego tj = TableroJuego.getInstance();
+    	x+=dx;
         y+=dy;
         if(colisionR1 == true ){
             dx=-dx;
@@ -46,15 +49,18 @@ public class Pelota {
         }
         if(x>limites.getMaxX()){
             dx=-dx;
+            tj.puntoR1();
         }
         if (y>limites.getMaxY()-15){
            dy=-dy;
         }
         if (x<-20){
             dx=-dx;
+            tj.puntoR2();
         }
         if (y<0){
             dy=-dy;
         }
+        tj.mostrarScore();
     }
 }
