@@ -11,16 +11,11 @@ public class Pelota {
 	
 	public int x, y,cx,cy,r=20;
     private int dx=1, dy=1;
-    private int dmax = 2;
+    private int dymax = 10;
     private int velini = 1;
-    private int acel = 1;
-    private double t = 0; 
-    private double dt = 0.001;
-        
-    //aceleracion
-    private int tmax = 30;
-    private int dxini = 1;
-    private int dyini = 1;
+    private int acel = 2;
+    private int t = 0; 
+    private double dt = 0.1;
     
     public Pelota() {
         this.x = 400;
