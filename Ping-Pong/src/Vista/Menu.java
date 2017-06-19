@@ -7,9 +7,13 @@ import java.awt.Graphics;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
+import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -20,18 +24,20 @@ import javax.swing.JRadioButton;
 import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 
-public class Menu extends JFrame {
+import org.w3c.dom.events.EventException;
 
+public class Menu extends JFrame {
+	public Clip clipFondo;
+	public Clip clipBoton;
+	public String ruta = "/multimedia/";
 	private JPanel panel;
 	private Color colorRojo;
 	private JLabel fondoParaGif, titulo;
 	private JButton jugar, ajustes, salir, soundOn, soundOff, volver;
 	private JRadioButton op1, op2, op3, op4;
 	private int tipoJuego = 0;
-	
-	
+
 	public Menu() {
-		
 		setResizable(false);
 		setTitle("Ping Pong");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -41,11 +47,15 @@ public class Menu extends JFrame {
 		panel = new JPanel(null);
 		panel.setBackground(Color.BLACK);
 		setContentPane(panel);
+		try {
+			sonido("Ping_Pong", 1);
+		} catch (LineUnavailableException | IOException | UnsupportedAudioFileException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 
-		
 		titulo = new JLabel();
-		titulo.setIcon(
-		new javax.swing.ImageIcon("C:/Users/windows/Documents/ping pong/Ping-Pong/src/multimedia/Titulo.png"));
+		titulo.setIcon(new javax.swing.ImageIcon("/src/multimedia/Titulo.png"));
 		titulo.setBounds(300, -200, 400, 500);
 		panel.add(titulo);
 
@@ -96,7 +106,7 @@ public class Menu extends JFrame {
 		panel.add(op4);
 
 		soundOn = new JButton();
-		soundOn.setIcon(new ImageIcon("C:/Users/windows/Documents/ping pong/Ping-Pong/src/multimedia/volume_up.png"));
+		soundOn.setIcon(new ImageIcon("/src/multimedia/volume_up.png"));
 		soundOn.setBackground(colorRojo);
 		soundOn.setForeground(Color.WHITE);
 		soundOn.setFont(new Font("Roboto", Font.BOLD, 30));
@@ -105,7 +115,7 @@ public class Menu extends JFrame {
 		panel.add(soundOn);
 
 		soundOff = new JButton();
-		soundOff.setIcon(new ImageIcon("C:/Users/windows/Documents/ping pong/Ping-Pong/src/multimedia/volume_off.png"));
+		soundOff.setIcon(new ImageIcon("/src/multimedia/volume_off.png"));
 		soundOff.setBackground(colorRojo);
 		soundOff.setForeground(Color.WHITE);
 		soundOff.setFont(new Font("Roboto", Font.BOLD, 30));
@@ -114,7 +124,7 @@ public class Menu extends JFrame {
 		panel.add(soundOff);
 
 		volver = new JButton();
-		volver.setIcon(new ImageIcon("C:/Users/windows/Documents/ping pong/Ping-Pong/src/multimedia/arrow_back.png"));
+		volver.setIcon(new ImageIcon("/src/multimedia/arrow_back.png"));
 		volver.setBackground(colorRojo);
 		volver.setBounds(50, 500, 50, 50);
 		volver.setVisible(false);
@@ -128,8 +138,7 @@ public class Menu extends JFrame {
 		panel.add(salir);
 
 		fondoParaGif = new JLabel();
-		fondoParaGif.setIcon(new javax.swing.ImageIcon(
-				"C:/Users/windows/Documents/ping pong/Ping-Pong/src/multimedia/fondoPrincipal.gif"));
+		fondoParaGif.setIcon(new javax.swing.ImageIcon("/src/multimedia/fondoPrincipal.gif"));
 		fondoParaGif.setBounds(0, -15, 900, 600);
 		panel.add(fondoParaGif);
 
@@ -139,6 +148,13 @@ public class Menu extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				// VentanaPrincipal vp = new VentanaPrincipal();
 				// vp.setVisible(true );
+
+				try {
+					sonido("ping_pong_8bit_beeep", 2);
+				} catch (LineUnavailableException | IOException | UnsupportedAudioFileException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 
 			}
 		});
@@ -158,6 +174,13 @@ public class Menu extends JFrame {
 				soundOn.setVisible(true);
 				volver.setVisible(true);
 				salir.setBounds(390, 510, 105, 35);
+				// sonido al precionar boton
+				try {
+					sonido("ping_pong_8bit_beeep", 2);
+				} catch (LineUnavailableException | IOException | UnsupportedAudioFileException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		});
 		op1.addActionListener(new ActionListener() {
@@ -171,7 +194,13 @@ public class Menu extends JFrame {
 					op3.setSelected(false);
 					op4.setSelected(false);
 					tipoJuego = 1;
-					
+					// sonido al precionar boton
+					try {
+						sonido("ping_pong_8bit_beeep", 2);
+					} catch (LineUnavailableException | IOException | UnsupportedAudioFileException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 				}
 
 			}
@@ -188,6 +217,13 @@ public class Menu extends JFrame {
 					op3.setSelected(false);
 					op4.setSelected(false);
 					tipoJuego = 2;
+					// sonido al precionar boton
+					try {
+						sonido("ping_pong_8bit_beeep", 2);
+					} catch (LineUnavailableException | IOException | UnsupportedAudioFileException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 				}
 			}
 		});
@@ -203,6 +239,13 @@ public class Menu extends JFrame {
 					op2.setSelected(false);
 					op4.setSelected(false);
 					tipoJuego = 3;
+					// sonido al precionar boton
+					try {
+						sonido("ping_pong_8bit_beeep", 2);
+					} catch (LineUnavailableException | IOException | UnsupportedAudioFileException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 				}
 			}
 		});
@@ -218,20 +261,49 @@ public class Menu extends JFrame {
 					op2.setSelected(false);
 					op3.setSelected(false);
 					tipoJuego = 4;
+					// sonido al precionar boton
+					try {
+						sonido("ping_pong_8bit_beeep", 2);
+					} catch (LineUnavailableException | IOException | UnsupportedAudioFileException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 				}
 			}
 		});
 
 		soundOn.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				
-				
+
+				// sonido al precionar boton
+				try {
+					sonido("ping_pong_8bit_beeep", 2);
+				} catch (LineUnavailableException | IOException | UnsupportedAudioFileException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		});
-		
+
+		soundOff.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+
+				// sonido al precionar boton
+				try {
+					sonido("ping_pong_8bit_beeep", 2);
+				} catch (LineUnavailableException | IOException | UnsupportedAudioFileException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
+
 		volver.addActionListener(new ActionListener() {
 
 			@Override
@@ -247,6 +319,13 @@ public class Menu extends JFrame {
 				soundOn.setVisible(false);
 				volver.setVisible(false);
 				salir.setBounds(390, 400, 105, 35);
+				// sonido al precionar boton
+				try {
+					sonido("ping_pong_8bit_beeep", 2);
+				} catch (LineUnavailableException | IOException | UnsupportedAudioFileException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		});
 
@@ -256,8 +335,40 @@ public class Menu extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				System.exit(0);
+				// sonido al precionar boton
+				try {
+					sonido("ping_pong_8bit_beeep", 2);
+				} catch (LineUnavailableException | IOException | UnsupportedAudioFileException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		});
 	}
 
+	public void sonido(String archivo, int n)
+			throws LineUnavailableException, IOException, UnsupportedAudioFileException {
+		if (n == 1) {
+			try {
+				clipFondo = AudioSystem.getClip();
+				clipFondo
+						.open(AudioSystem.getAudioInputStream(getClass().getResourceAsStream(ruta + archivo + ".wav")));
+				clipFondo.loop(20);
+			} catch (EventException e) {
+				// TODO: handle exception
+			}
+		} else {
+			if (n == 2) {
+				try {
+					clipBoton = AudioSystem.getClip();
+					clipBoton.open(
+							AudioSystem.getAudioInputStream(getClass().getResourceAsStream(ruta + archivo + ".wav")));
+					clipBoton.start();
+				} catch (EventException e) {
+					// TODO: handle exception
+				}
+			}
+		}
+
+	}
 }
