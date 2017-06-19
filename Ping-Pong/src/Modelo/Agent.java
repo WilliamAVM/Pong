@@ -15,7 +15,7 @@ public class Agent {
 	}
 	private void init(){
 
-		String fileName = "player6.fcl";
+		String fileName = "player3.fcl";
 		fis = FIS.load(fileName, true);
 		if (fis == null) {
 			System.out.println("ERROR AL CARGAR ");

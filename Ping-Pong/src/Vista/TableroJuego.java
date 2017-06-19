@@ -140,13 +140,7 @@ public class TableroJuego extends JPanel {
     }
     
     private boolean coolision(Rectangle2D r){
-    	try {
-			sonido("ping_pong_8bit_beeep");
-		} catch (LineUnavailableException | IOException | UnsupportedAudioFileException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-        return pelota.getPelota().intersects(r);
+    	return pelota.getPelota().intersects(r);
     }
     
     

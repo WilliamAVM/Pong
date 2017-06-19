@@ -2,10 +2,6 @@ package Control;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-/**
- *
- * @author william
- */
 public class ControlJugadores extends KeyAdapter {
 
     public static ControlJugadores cJugadores = new ControlJugadores();
@@ -14,7 +10,6 @@ public class ControlJugadores extends KeyAdapter {
 	
 	public static boolean w, s, arriba, abajo;
 	public ControlJugadores(){
-		
 		
 		cAgent = ControlAgent.cAgent;
 	}
