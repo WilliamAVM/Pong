@@ -176,11 +176,11 @@ public class Menu extends JFrame {
 
 				dispose();
 				VentanaPrincipal vp = new VentanaPrincipal(tipoJuego);
-				
 				 vp.setVisible(true );
-
 				try {
 					sonido("ping_pong_8bit_beeep", 2);
+					//clipFondo.stop();
+					//clipBoton.stop();
 				} catch (LineUnavailableException | IOException | UnsupportedAudioFileException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
