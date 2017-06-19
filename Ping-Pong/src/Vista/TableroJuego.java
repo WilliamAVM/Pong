@@ -14,6 +14,7 @@ import Modelo.Agent;
 import Modelo.Pelota;
 import Modelo.Raqueta;
 import Modelo.RaquetaAgente;
+import Modelo.RaquetaPadre;
 
 /**
  *
@@ -24,8 +25,8 @@ public class TableroJuego extends JPanel {
     private static final TableroJuego INSTANCE = new TableroJuego();
 		
 	public Pelota pelota;
-	public RaquetaAgente r1;
-	public Raqueta r2;
+	public RaquetaPadre r1;
+	public RaquetaPadre r2;
 	
 	public int height = 500;
 	public int width = 800;
@@ -79,7 +80,18 @@ public class TableroJuego extends JPanel {
     public void Dibujar(Graphics2D g){
         g.drawLine(width/2, height,width/2, 0);
         g.fill(pelota.getPelota());
+        Color colorR1  = Color.red;
+        Color colorR2  = Color.red;
+        if (r1 instanceof Raqueta){
+        	colorR1 = Color.green;
+        }
+        
+        if(r2 instanceof  Raqueta){
+        	colorR2 = Color.green;
+        }
+        g.setColor(colorR1);
         g.fill(r1.getRaqueta());
+        g.setColor(colorR2);
         g.fill(r2.getRaqueta());
     }
     
