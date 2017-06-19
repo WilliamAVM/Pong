@@ -53,7 +53,7 @@ public class Menu extends JFrame {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-
+		
 		titulo = new JLabel();
 		titulo.setIcon(new javax.swing.ImageIcon("/src/multimedia/Titulo.png"));
 		titulo.setBounds(300, -200, 400, 500);
@@ -146,8 +146,8 @@ public class Menu extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				// VentanaPrincipal vp = new VentanaPrincipal();
-				// vp.setVisible(true );
+				 VentanaPrincipal vp = new VentanaPrincipal();
+				 vp.setVisible(true );
 
 				try {
 					sonido("ping_pong_8bit_beeep", 2);
@@ -351,8 +351,7 @@ public class Menu extends JFrame {
 		if (n == 1) {
 			try {
 				clipFondo = AudioSystem.getClip();
-				clipFondo
-						.open(AudioSystem.getAudioInputStream(getClass().getResourceAsStream(ruta + archivo + ".wav")));
+				clipFondo.open(AudioSystem.getAudioInputStream(getClass().getResourceAsStream(ruta + archivo + ".wav")));
 				clipFondo.loop(20);
 			} catch (EventException e) {
 				// TODO: handle exception
@@ -361,8 +360,7 @@ public class Menu extends JFrame {
 			if (n == 2) {
 				try {
 					clipBoton = AudioSystem.getClip();
-					clipBoton.open(
-							AudioSystem.getAudioInputStream(getClass().getResourceAsStream(ruta + archivo + ".wav")));
+					clipBoton.open(AudioSystem.getAudioInputStream(getClass().getResourceAsStream(ruta + archivo + ".wav")));
 					clipBoton.start();
 				} catch (EventException e) {
 					// TODO: handle exception

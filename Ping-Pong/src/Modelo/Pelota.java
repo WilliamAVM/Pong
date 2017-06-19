@@ -15,6 +15,11 @@ public class Pelota {
 	
 	public int x, y,cx,cy,r=20;
     private int dx=1, dy=1;
+    private int dymax = 10;
+    private int velini = 1;
+    private int acel = 2;
+    private int t = 0; 
+    private double dt = 0.1;
     
     public Pelota() {
         this.x = 400;
@@ -39,11 +44,17 @@ public class Pelota {
         
     
     private void acelerar(){
+    	t+=dt;
+    	if(dy<dymax){
+    		dy = (int) (velini*t+0.5*acel*t*t);
+    	}
+    	System.out.println(dy);
     	
     }
 
     public void mover(Rectangle limites, boolean colisionR1, boolean colisionR2) {
-        TableroJuego tj = TableroJuego.getInstance();
+    	
+    	TableroJuego tj = TableroJuego.getInstance();
     	x+=dx;
         y+=dy;
         if(colisionR1 == true ){

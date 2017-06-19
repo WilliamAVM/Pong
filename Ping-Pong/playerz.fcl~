@@ -1,0 +1,62 @@
+FUNCTION_BLOCK player
+
+
+//definiendo las entradas y salidas
+
+VAR_INPUT
+	pelotaX: REAL;
+	pelotaY: REAL;
+END_VAR
+
+VAR_OUTPUT
+	mov:REAL;
+END_VAR
+
+//rango de valores [0..100]
+
+FUZZIFY pelotaX
+	TERM cerca := (0,1) (50,0);
+	TERM medio := (0,0) (50,1) (100,0);
+	TERM lejos := (50,0) (100,1);
+END_FUZZIFY
+
+//rango de valores []
+FUZZIFY pelotaY
+	TERM muyArriba := (45,0) (100,1) (100,0) ;
+	TERM arriba := (20,0) (70,1) (70,0)  ;
+	TERM cercaArriba := (0,0) (0,1) (40,0) ;
+	TERM cercaAbajo := (-40,0) (0,1) (0,0) ;
+	TERM abajo := (-70,0) (-70,1) (-20,0)  ;
+	TERM muyAbajo := (-100,0) (-100,1) (-45,0) ;	
+END_FUZZIFY
+
+DEFUZZIFY mov
+	TERM rapArriba := (50,0) (100,1) ;
+	TERM despArriba := (0,0) (35,1) (70,0);
+	TERM quieto := (-20,0) (0,1) (20,0);
+	TERM despAbajo  :=  (-70,0) (-35,1) (-0,0);
+	TERM rapAbajo := (-100,1) (-50,0);
+	METHOD: COG;
+	DEFAULT:=0;
+END_DEFUZZIFY
+
+RULEBLOCK No1
+	  ACT : MIN;
+	  ACCU : MAX;
+	  AND : MIN;
+	  OR : MAX;
+	  RULE 1: IF (pelotaX IS cerca) AND ((pelotaY IS cercaArriba) OR (pelotaY IS cercaAbajo)) THEN  mov IS quieto;
+	  RULE 2: IF (pelotaX IS cerca) AND (pelotaY IS arriba) THEN mov IS despArriba;
+	  RULE 3: IF (pelotaX IS cerca) AND (pelotaY IS muyArriba) THEN mov IS rapArriba;
+	  RULE 4: IF (pelotaX IS cerca) AND (pelotaY IS abajo) THEN mov IS despAbajo;
+	  RULE 5: IF (pelotaX IS cerca) AND (pelotaY IS muyAbajo) THEN mov IS rapAbajo;
+	  RULE 6: IF (pelotaX IS medio) AND ((pelotaY IS cercaArriba) OR (pelotaY IS cercaAbajo)) THEN mov IS quieto;  
+	  RULE 7: IF (pelotaX IS medio) AND ((pelotaY IS arriba) OR (pelotaY IS muyArriba)) THEN mov IS despArriba; 
+	  RULE 8: IF (pelotaX IS medio) AND ((pelotaY IS abajo) OR (pelotaY IS muyAbajo)) THEN mov IS despAbajo;
+	  RULE 9: IF pelotaX IS lejos THEN mov IS quieto;
+
+END_RULEBLOCK
+
+	  
+
+END_FUNCTION_BLOCK
