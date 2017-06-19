@@ -11,7 +11,7 @@ public class RaquetaAgente {
 	private Agent agent;
 	private boolean arriba, abajo;
 	public int x, y,cx,cy,width,height;
-	private int dy = 2;
+	private int dy = 1;
 
 	public RaquetaAgente(int x, int y) {
 		

@@ -25,7 +25,7 @@ public class TableroJuego extends JPanel {
 		
 	public Pelota pelota;
 	public RaquetaAgente r1;
-	public Raqueta r2;
+	public RaquetaAgente r2;
 	
 	public int height = 500;
 	public int width = 800;
@@ -38,7 +38,7 @@ public class TableroJuego extends JPanel {
     	//inicializando elementos
     	pelota= new Pelota(400, 200);
     	r1 = new RaquetaAgente(10,300);
-    	r2 = new Raqueta(770,200);
+    	r2 = new RaquetaAgente(770,200);
     	//puntajes
     	ptj1 = 0;
     	ptj2 = 0;
