@@ -4,10 +4,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import Vista.TableroJuego;
 
-/**
- *
- * @author william
- */
 public class Hilo extends Thread {
 
     TableroJuego tableroJ;
