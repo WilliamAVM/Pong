@@ -42,12 +42,31 @@ public class TableroJuego extends JPanel {
 	private int ptj1,ptj2,ptjmax;
     
 	public JLabel puntaje1,puntaje2,jugador1,jugador2;
-    
+    private int tipoJuego;
     private TableroJuego() {        
     	//inicializando elementos
     	pelota= new Pelota(400, 200);
-    	r1 = new RaquetaAgente(10,300);
-    	r2 = new Raqueta(770,200);
+    	init();
+    }
+    public void initRaquetas(int tipoJuego){
+    	
+    	switch(tipoJuego){
+    	case 1: r1 = new Raqueta(10,300);
+    			r2 = new Raqueta(770,200);break;
+    			
+    	case 2: r1 = new Raqueta(10, 300);
+    			r2 = new RaquetaAgente(770, 200);break;
+    			
+    	case 3: r1 = new RaquetaAgente(10, 300);
+				r2 = new Raqueta(770, 200);break;
+				
+    	case 4: r1 = new RaquetaAgente(10, 300);
+				r2 = new RaquetaAgente(770, 200);break;
+    	}
+		
+    }
+    
+    private void  init(){
     	//puntajes
     	ptj1 = 0;
     	ptj2 = 0;
