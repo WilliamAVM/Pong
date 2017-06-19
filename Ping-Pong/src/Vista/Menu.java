@@ -27,7 +27,7 @@ public class Menu extends JFrame {
 	private JLabel fondoParaGif, titulo;
 	private JButton jugar, ajustes, salir, soundOn, soundOff, volver;
 	private JRadioButton op1, op2, op3, op4;
-	private int tipoJuego = 0;
+	private int tipoJuego = 1;
 	
 	
 	public Menu() {
@@ -41,7 +41,7 @@ public class Menu extends JFrame {
 		panel = new JPanel(null);
 		panel.setBackground(Color.BLACK);
 		setContentPane(panel);
-
+	
 		
 		titulo = new JLabel();
 		titulo.setIcon(
@@ -62,16 +62,31 @@ public class Menu extends JFrame {
 		ajustes.setFont(new Font("Roboto", Font.BOLD, 30));
 		ajustes.setBounds(370, 300, 150, 39);
 		panel.add(ajustes);
-
+		ActionListener accionJuego= new ActionListener() {
+			int tipoJ =0;
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				switch(e.getActionCommand()){
+				case "Human vs Human": tipoJ=1;break;
+				case "Human vs Agent": tipoJ=2;break;
+				case "Agent vs Human": tipoJ=3;break;
+				case "Agent vs Agent": tipoJ=4;break;
+				}
+				tipoJuego=tipoJ;
+			}
+		};
 		op1 = new JRadioButton("Human vs Human");
+		op1.setActionCommand("Human vs Human");
 		op1.setBackground(colorRojo);
 		op1.setForeground(Color.WHITE);
 		op1.setFont(new Font("Roboto", Font.BOLD, 26));
 		op1.setBounds(370, 210, 250, 45);
 		op1.setVisible(false);
+		
 		panel.add(op1);
 
 		op2 = new JRadioButton("Human vs Agent");
+		op2.setActionCommand("Human vs Agent");
 		op2.setBackground(colorRojo);
 		op2.setForeground(Color.WHITE);
 		op2.setFont(new Font("Roboto", Font.BOLD, 27));
@@ -80,6 +95,7 @@ public class Menu extends JFrame {
 		panel.add(op2);
 
 		op3 = new JRadioButton("Agent vs Human");
+		op3.setActionCommand("Agent vs Human");
 		op3.setBackground(colorRojo);
 		op3.setForeground(Color.WHITE);
 		op3.setFont(new Font("Roboto", Font.BOLD, 27));
@@ -88,13 +104,19 @@ public class Menu extends JFrame {
 		panel.add(op3);
 
 		op4 = new JRadioButton("Agent vs Agent");
+		op4.setActionCommand("Agent vs Agent");
 		op4.setBackground(colorRojo);
 		op4.setForeground(Color.WHITE);
 		op4.setFont(new Font("Roboto", Font.BOLD, 27));
 		op4.setBounds(370, 390, 250, 45);
 		op4.setVisible(false);
 		panel.add(op4);
-
+		
+		op1.addActionListener(accionJuego);
+		op2.addActionListener(accionJuego);
+		op3.addActionListener(accionJuego);
+		op4.addActionListener(accionJuego);
+		
 		soundOn = new JButton();
 		soundOn.setIcon(new ImageIcon("src/multimedia/volume_up.png"));
 		soundOn.setBackground(colorRojo);
@@ -136,10 +158,9 @@ public class Menu extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				VentanaPrincipal vp = new VentanaPrincipal();
-		        vp.setVisible(true);
-		        setVisible(false);
-
+				dispose();
+				VentanaPrincipal vp = new VentanaPrincipal(tipoJuego);
+				
 			}
 		});
 
@@ -259,5 +280,4 @@ public class Menu extends JFrame {
 			}
 		});
 	}
-
 }
