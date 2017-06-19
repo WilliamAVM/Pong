@@ -15,11 +15,16 @@ public class Pelota {
 	
 	public int x, y,cx,cy,r=20;
     private int dx=1, dy=1;
-    private int dymax = 10;
+    private int dmax = 2;
     private int velini = 1;
-    private int acel = 2;
-    private int t = 0; 
-    private double dt = 0.1;
+    private int acel = 1;
+    private double t = 0; 
+    private double dt = 0.001;
+        
+    //aceleracion
+    private int tmax = 30;
+    private int dxini = 1;
+    private int dyini = 1;
     
     public Pelota() {
         this.x = 400;
@@ -41,19 +46,37 @@ public class Pelota {
     	calcularCentros();
         return new Rectangle2D.Double(x, y, r, r);
     }
-        
+     
+    /*
+    private void acelerar(){
+    	if(t<tmax){
+    		t+=dt;
+    		//if(Math.abs(dy)<dmax)
+    			
+    	}
+    }
+    */
+    
     
     private void acelerar(){
     	t+=dt;
-    	if(dy<dymax){
-    		dy = (int) (velini*t+0.5*acel*t*t);
+    	if(Math.abs(dy)<dmax){
+    		if(dy>0)
+    			dy = (int) (velini*t+0.5*acel*t*t);
+    		else
+    			dy = (-1)*(int) (velini*t+0.5*acel*t*t);
+    		if(dx>0)
+    			dx = (int) (velini*t+0.5*acel*t*t);
+    		else
+    			dx = (-1)*(int) (velini*t+0.5*acel*t*t);
+    		System.out.println("funciona");
     	}
-    	System.out.println(dy);
+    	System.out.println(dx);
     	
     }
 
     public void mover(Rectangle limites, boolean colisionR1, boolean colisionR2) {
-    	
+    	acelerar();
     	TableroJuego tj = TableroJuego.getInstance();
     	x+=dx;
         y+=dy;
