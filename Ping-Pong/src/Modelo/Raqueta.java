@@ -6,7 +6,7 @@ import java.awt.geom.Rectangle2D;
 import Control.ControlJugadores;
 import Vista.TableroJuego;
 
-public class Raqueta {
+public class Raqueta implements RaquetaPadre {
 
 	private ControlJugadores cJugadores = ControlJugadores.cJugadores;
 	public int x, y;

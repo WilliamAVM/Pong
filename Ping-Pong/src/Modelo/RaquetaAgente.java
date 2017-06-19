@@ -6,7 +6,7 @@ import java.awt.geom.Rectangle2D;
 import Control.ControlJugadores;
 import Vista.TableroJuego;
 
-public class RaquetaAgente {
+public class RaquetaAgente implements RaquetaPadre{
 	
 	private Agent agent;
 	private boolean arriba, abajo;
