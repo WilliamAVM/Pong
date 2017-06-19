@@ -11,11 +11,19 @@ public class Pelota {
 	
 	public int x, y,cx,cy,r=20;
     private int dx=1, dy=1;
-    private int dymax = 10;
+    private int dmax = 10;
     private int velini = 1;
     private int acel = 2;
-    private int t = 0; 
-    private double dt = 0.1;
+   
+    
+    
+    
+    private int t = 0;
+    private double dt = 0.0001;
+    private int inc=1;
+    private double tmax = 30;
+    private int inct = 1;
+    
     
     public Pelota() {
         this.x = 400;
@@ -38,17 +46,31 @@ public class Pelota {
         return new Rectangle2D.Double(x, y, r, r);
     }
      
-    /*
+    
     private void acelerar(){
     	if(t<tmax){
     		t+=dt;
-    		//if(Math.abs(dy)<dmax)
-    			
+    		if(Math.abs(dy)<dmax){
+    			if(dy>0){
+    				dy = dy + inc*t/inct;
+    			}else{
+    				dy = dy - inc*t/inct;
+    			}    				
+    		}
+    		if(Math.abs(dx)<dmax){
+    			if(dx>0){
+    				dx = dx + inc*t/inct;
+    			}else{
+    				dx = dx - inc*t/inct;
+    			}    				
+    		}
+    	}else{
+    		t = 0;
     	}
     }
-    */
     
     
+    /*
     private void acelerar(){
     	t+=dt;
     	if(Math.abs(dy)<dmax){
@@ -65,7 +87,7 @@ public class Pelota {
     	System.out.println(dx);
     	
     }
-
+*/
     public void mover(Rectangle limites, boolean colisionR1, boolean colisionR2) {
     	acelerar();
     	TableroJuego tj = TableroJuego.getInstance();
