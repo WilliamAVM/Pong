@@ -23,5 +23,9 @@ public class Hilo extends Thread {
             tableroJ.repaint();
         }
     }
+    
+    public void parar() throws InterruptedException{
+    	Thread.sleep(10000);
+    }
 
 }

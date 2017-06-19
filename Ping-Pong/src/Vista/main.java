@@ -10,5 +10,6 @@ public class main {
 	public static void main(String arg[]) throws LineUnavailableException, IOException, UnsupportedAudioFileException{
 		Menu menu = new Menu();
 		menu.setVisible(true);
+	
 	}
 }

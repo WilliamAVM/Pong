@@ -4,10 +4,6 @@ import Control.Hilo;
 import Control.ControlJugadores;
 import javax.swing.JFrame;
 
-/**
- *
- * @author william
- */
 public class VentanaPrincipal extends JFrame {
 
     private TableroJuego tj;

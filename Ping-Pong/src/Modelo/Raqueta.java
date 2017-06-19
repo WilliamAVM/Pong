@@ -1,6 +1,7 @@
 package Modelo;
 
 import java.awt.Rectangle;
+import java.awt.event.KeyEvent;
 import java.awt.geom.Rectangle2D;
 
 import Control.ControlJugadores;
@@ -42,6 +43,7 @@ public class Raqueta implements RaquetaPadre {
 				y+=dy;
 			}
 		}
+		
 	}
 
 	private void MoverRaqueta2(Rectangle limites) {
@@ -55,6 +57,7 @@ public class Raqueta implements RaquetaPadre {
 				y+=dy;
 			}
 		}
-
 	}
+	
+	
 }
