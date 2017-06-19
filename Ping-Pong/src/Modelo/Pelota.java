@@ -20,8 +20,16 @@ public class Pelota {
     
     
     public Pelota() {
-        this.x = 400;
+    	inicio();
+    }
+    
+    private void inicio(){
+    	this.x = 400;
         this.y = 200;
+        t = 0;
+        dx =1;
+        dy =1;
+        
     }
     
     private void calcularCentros(){
@@ -81,6 +89,7 @@ public class Pelota {
         if(x>limites.getMaxX()){
             dx=-dx;
             tj.puntoR1();
+            inicio();
         }
         if (y>limites.getMaxY()-15){
            dy=-dy;
@@ -88,6 +97,7 @@ public class Pelota {
         if (x<-20){
             dx=-dx;
             tj.puntoR2();
+            inicio();
         }
         if (y<0){
             dy=-dy;
