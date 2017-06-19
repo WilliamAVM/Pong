@@ -3,11 +3,18 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.geom.Rectangle2D;
+import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
+import org.w3c.dom.events.EventException;
 
 import Control.ControlAgent;
 import Modelo.Agent;
@@ -27,7 +34,8 @@ public class TableroJuego extends JPanel {
 	public Pelota pelota;
 	public RaquetaPadre r1;
 	public RaquetaPadre r2;
-	
+	public Clip sonidoChoque;
+	public String ruta = "/multimedia/";
 	public int height = 500;
 	public int width = 800;
 	
@@ -132,6 +140,12 @@ public class TableroJuego extends JPanel {
     }
     
     private boolean coolision(Rectangle2D r){
+    	try {
+			sonido("ping_pong_8bit_beeep");
+		} catch (LineUnavailableException | IOException | UnsupportedAudioFileException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
         return pelota.getPelota().intersects(r);
     }
     
@@ -155,5 +169,16 @@ public class TableroJuego extends JPanel {
 	   ptj2++;
    }
     
-    
-}
+   public void sonido(String archivo)
+			throws LineUnavailableException, IOException, UnsupportedAudioFileException {
+				try {
+					sonidoChoque = AudioSystem.getClip();
+					sonidoChoque.open(AudioSystem.getAudioInputStream(getClass().getResourceAsStream(ruta + archivo + ".wav")));
+					sonidoChoque.start();
+				} catch (EventException e) {
+					// TODO: handle exception
+				}
+			}
+	
+	}
+
