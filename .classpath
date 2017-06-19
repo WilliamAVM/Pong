@@ -2,5 +2,6 @@
 <classpath>
 	<classpathentry kind="src" path="Ping-Pong/src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="lib/jFuzzyLogic.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
