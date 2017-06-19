@@ -5,10 +5,6 @@ import java.awt.geom.Rectangle2D;
 
 import Vista.TableroJuego;
 
-/**
- *
- * @author willi
- */
 public class Pelota {
 
     public static Pelota pelota= new Pelota();
@@ -31,7 +27,6 @@ public class Pelota {
     	cy = y + r/2;
     }
     
-    
     public Pelota(int x, int y) {
         this.x = x;
         this.y = y;
@@ -42,7 +37,6 @@ public class Pelota {
         return new Rectangle2D.Double(x, y, r, r);
     }
         
-    
     private void acelerar(){
     	t+=dt;
     	if(dy<dymax){
