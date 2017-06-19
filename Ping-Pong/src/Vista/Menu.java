@@ -19,27 +19,27 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
+import java.applet.AudioClip;
 
 public class Menu extends JFrame {
 
 	private JPanel panel;
-	private Clip clip;
-	private String ruta="/multimedia/";
 	private Color colorRojo;
 	private JLabel fondoParaGif, titulo;
 	private JButton jugar, ajustes, salir, soundOn, soundOff, volver;
 	private JRadioButton op1, op2, op3, op4;
 	private int tipoJuego = 0;
-
+	private AudioClip sonidoFondo;
 	public Menu() {
+		
+		//initComponets
 		setResizable(false);
 		setTitle("Ping Pong");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(500, 500, 900, 600);
 		setLocationRelativeTo(null);
-		sonido("PingPongSound");
-
-		
+		sonidoFondo = java.applet.Applet.newAudioClip(getClass().getResourceAsStream("C:/Users/windows/Documents/ping pong/Ping-Pong/src/multimedia/cancionDeFondo.wav"));
+		sonidoFondo.play();
 		colorRojo = new Color(213, 44, 60);
 		panel = new JPanel(null);
 		panel.setBackground(Color.BLACK);
@@ -47,7 +47,7 @@ public class Menu extends JFrame {
 
 		titulo = new JLabel();
 		titulo.setIcon(
-				new javax.swing.ImageIcon("C:/Users/windows/Documents/ping pong/Ping-Pong/src/multimedia/Titulo.png"));
+		new javax.swing.ImageIcon("C:/Users/windows/Documents/ping pong/Ping-Pong/src/multimedia/Titulo.png"));
 		titulo.setBounds(300, -200, 400, 500);
 		panel.add(titulo);
 
@@ -173,6 +173,7 @@ public class Menu extends JFrame {
 					op3.setSelected(false);
 					op4.setSelected(false);
 					tipoJuego = 1;
+					
 				}
 
 			}
@@ -223,6 +224,16 @@ public class Menu extends JFrame {
 			}
 		});
 
+		soundOn.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				
+			}
+		});
+		
 		volver.addActionListener(new ActionListener() {
 
 			@Override
@@ -251,13 +262,4 @@ public class Menu extends JFrame {
 		});
 	}
 
-	public void sonido(String archivo){
-		try {
-			clip = AudioSystem.getClip();
-			clip.open(AudioSystem.getAudioInputStream(getClass().getResourceAsStream(ruta+archivo+".wav")));
-			clip.start();
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
-	}
 }
