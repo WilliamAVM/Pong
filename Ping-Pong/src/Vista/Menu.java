@@ -45,7 +45,7 @@ public class Menu extends JFrame {
 		
 		titulo = new JLabel();
 		titulo.setIcon(
-		new javax.swing.ImageIcon("C:/Users/windows/Documents/ping pong/Ping-Pong/src/multimedia/Titulo.png"));
+		new javax.swing.ImageIcon("src/multimedia/Titulo.png"));
 		titulo.setBounds(300, -200, 400, 500);
 		panel.add(titulo);
 
@@ -96,7 +96,7 @@ public class Menu extends JFrame {
 		panel.add(op4);
 
 		soundOn = new JButton();
-		soundOn.setIcon(new ImageIcon("C:/Users/windows/Documents/ping pong/Ping-Pong/src/multimedia/volume_up.png"));
+		soundOn.setIcon(new ImageIcon("src/multimedia/volume_up.png"));
 		soundOn.setBackground(colorRojo);
 		soundOn.setForeground(Color.WHITE);
 		soundOn.setFont(new Font("Roboto", Font.BOLD, 30));
@@ -105,7 +105,7 @@ public class Menu extends JFrame {
 		panel.add(soundOn);
 
 		soundOff = new JButton();
-		soundOff.setIcon(new ImageIcon("C:/Users/windows/Documents/ping pong/Ping-Pong/src/multimedia/volume_off.png"));
+		soundOff.setIcon(new ImageIcon("src/multimedia/volume_off.png"));
 		soundOff.setBackground(colorRojo);
 		soundOff.setForeground(Color.WHITE);
 		soundOff.setFont(new Font("Roboto", Font.BOLD, 30));
@@ -114,7 +114,7 @@ public class Menu extends JFrame {
 		panel.add(soundOff);
 
 		volver = new JButton();
-		volver.setIcon(new ImageIcon("C:/Users/windows/Documents/ping pong/Ping-Pong/src/multimedia/arrow_back.png"));
+		volver.setIcon(new ImageIcon("src/multimedia/arrow_back.png"));
 		volver.setBackground(colorRojo);
 		volver.setBounds(50, 500, 50, 50);
 		volver.setVisible(false);
@@ -128,8 +128,7 @@ public class Menu extends JFrame {
 		panel.add(salir);
 
 		fondoParaGif = new JLabel();
-		fondoParaGif.setIcon(new javax.swing.ImageIcon(
-				"C:/Users/windows/Documents/ping pong/Ping-Pong/src/multimedia/fondoPrincipal.gif"));
+		fondoParaGif.setIcon(new javax.swing.ImageIcon("src/multimedia/fondoPrincipal.gif"));
 		fondoParaGif.setBounds(0, -15, 900, 600);
 		panel.add(fondoParaGif);
 
