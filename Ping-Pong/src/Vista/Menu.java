@@ -5,86 +5,133 @@ import java.awt.Component;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
-import java.applet.AudioClip;
 
-public class Menu extends JFrame{
-	
+public class Menu extends JFrame {
+
 	private JPanel panel;
 	private Color colorRojo;
 	private JLabel fondoParaGif, titulo;
-<<<<<<< HEAD
 	private JButton jugar, ajustes, salir, soundOn, soundOff, volver;
 	private JRadioButton op1, op2, op3, op4;
 	private int tipoJuego = 0;
-	private AudioClip sonidoFondo;
+	
+	
 	public Menu() {
 		
-		//initComponets
-=======
-	private JButton jugar, ajustes, salir; 
-	
-	public Menu(){
-	    ImageIcon icon = new ImageIcon("src/multimedia/icono.png");
-        setIconImage(icon.getImage());
->>>>>>> d241d63bf06835e2b20f9bd82ca3a8a17afe88da
 		setResizable(false);
 		setTitle("Ping Pong");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(500, 500, 900, 600);
 		setLocationRelativeTo(null);
-<<<<<<< HEAD
-		sonidoFondo = java.applet.Applet.newAudioClip(getClass().getResourceAsStream("C:/Users/windows/Documents/ping pong/Ping-Pong/src/multimedia/cancionDeFondo.wav"));
-		sonidoFondo.play();
 		colorRojo = new Color(213, 44, 60);
 		panel = new JPanel(null);
 		panel.setBackground(Color.BLACK);
 		setContentPane(panel);
 
+		
 		titulo = new JLabel();
 		titulo.setIcon(
 		new javax.swing.ImageIcon("C:/Users/windows/Documents/ping pong/Ping-Pong/src/multimedia/Titulo.png"));
 		titulo.setBounds(300, -200, 400, 500);
-=======
-		
-		colorRojo= new Color(213, 44, 60);
-		panel = new JPanel(null);
-		panel.setBackground(Color.BLACK);
-		setContentPane(panel);
-		
-		titulo= new JLabel();
-		titulo.setIcon(new javax.swing.ImageIcon("src/multimedia/Titulo.png"));
-		titulo.setBounds(290, -200, 400, 500);
->>>>>>> d241d63bf06835e2b20f9bd82ca3a8a17afe88da
 		panel.add(titulo);
-		
-		salir= new JButton("Salir");
-		salir.setBackground(colorRojo);
-		salir.setForeground(Color.WHITE);
-		salir.setFont(new Font("Roboto", Font.BOLD, 25));
-		salir.setBounds(320, 500, 105, 30);
-		panel.add(salir);
-	
-		jugar= new JButton("Jugar");
+
+		jugar = new JButton("Jugar");
 		jugar.setBackground(colorRojo);
 		jugar.setForeground(Color.WHITE);
-		jugar.setFont(new Font("Roboto", Font.BOLD, 25));
-		jugar.setBounds(450, 500, 105, 30);
+		jugar.setFont(new Font("Roboto", Font.BOLD, 30));
+		jugar.setBounds(370, 200, 150, 39);
 		panel.add(jugar);
-		
+
+		ajustes = new JButton("Ajustes");
+		ajustes.setBackground(colorRojo);
+		ajustes.setForeground(Color.WHITE);
+		ajustes.setFont(new Font("Roboto", Font.BOLD, 30));
+		ajustes.setBounds(370, 300, 150, 39);
+		panel.add(ajustes);
+
+		op1 = new JRadioButton("opcion1");
+		op1.setBackground(colorRojo);
+		op1.setForeground(Color.WHITE);
+		op1.setFont(new Font("Roboto", Font.BOLD, 30));
+		op1.setBounds(370, 210, 150, 45);
+		op1.setVisible(false);
+		panel.add(op1);
+
+		op2 = new JRadioButton("opcion2");
+		op2.setBackground(colorRojo);
+		op2.setForeground(Color.WHITE);
+		op2.setFont(new Font("Roboto", Font.BOLD, 30));
+		op2.setBounds(370, 270, 150, 45);
+		op2.setVisible(false);
+		panel.add(op2);
+
+		op3 = new JRadioButton("opcion3");
+		op3.setBackground(colorRojo);
+		op3.setForeground(Color.WHITE);
+		op3.setFont(new Font("Roboto", Font.BOLD, 30));
+		op3.setBounds(370, 330, 150, 45);
+		op3.setVisible(false);
+		panel.add(op3);
+
+		op4 = new JRadioButton("opcion4");
+		op4.setBackground(colorRojo);
+		op4.setForeground(Color.WHITE);
+		op4.setFont(new Font("Roboto", Font.BOLD, 30));
+		op4.setBounds(370, 390, 150, 45);
+		op4.setVisible(false);
+		panel.add(op4);
+
+		soundOn = new JButton();
+		soundOn.setIcon(new ImageIcon("C:/Users/windows/Documents/ping pong/Ping-Pong/src/multimedia/volume_up.png"));
+		soundOn.setBackground(colorRojo);
+		soundOn.setForeground(Color.WHITE);
+		soundOn.setFont(new Font("Roboto", Font.BOLD, 30));
+		soundOn.setBounds(350, 450, 45, 45);
+		soundOn.setVisible(false);
+		panel.add(soundOn);
+
+		soundOff = new JButton();
+		soundOff.setIcon(new ImageIcon("C:/Users/windows/Documents/ping pong/Ping-Pong/src/multimedia/volume_off.png"));
+		soundOff.setBackground(colorRojo);
+		soundOff.setForeground(Color.WHITE);
+		soundOff.setFont(new Font("Roboto", Font.BOLD, 30));
+		soundOff.setBounds(500, 450, 45, 45);
+		soundOff.setVisible(false);
+		panel.add(soundOff);
+
+		volver = new JButton();
+		volver.setIcon(new ImageIcon("C:/Users/windows/Documents/ping pong/Ping-Pong/src/multimedia/arrow_back.png"));
+		volver.setBackground(colorRojo);
+		volver.setBounds(50, 500, 50, 50);
+		volver.setVisible(false);
+		panel.add(volver);
+
+		salir = new JButton("Salir");
+		salir.setBackground(colorRojo);
+		salir.setForeground(Color.WHITE);
+		salir.setFont(new Font("Roboto", Font.BOLD, 30));
+		salir.setBounds(390, 400, 105, 35);
+		panel.add(salir);
+
 		fondoParaGif = new JLabel();
-		fondoParaGif.setIcon(new javax.swing.ImageIcon("src/multimedia/fondoPrincipal.gif"));
-		fondoParaGif.setBounds(0,0, 900, 600);
+		fondoParaGif.setIcon(new javax.swing.ImageIcon(
+				"C:/Users/windows/Documents/ping pong/Ping-Pong/src/multimedia/fondoPrincipal.gif"));
+		fondoParaGif.setBounds(0, -15, 900, 600);
 		panel.add(fondoParaGif);
-<<<<<<< HEAD
 
 		jugar.addActionListener(new ActionListener() {
 
@@ -213,8 +260,4 @@ public class Menu extends JFrame{
 		});
 	}
 
-=======
-	}
-	
->>>>>>> d241d63bf06835e2b20f9bd82ca3a8a17afe88da
 }
