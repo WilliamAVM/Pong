@@ -136,8 +136,9 @@ public class Menu extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				// VentanaPrincipal vp = new VentanaPrincipal();
-				// vp.setVisible(true );
+				VentanaPrincipal vp = new VentanaPrincipal();
+		        vp.setVisible(true);
+		        setVisible(false);
 
 			}
 		});

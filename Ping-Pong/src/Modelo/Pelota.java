@@ -53,7 +53,7 @@ public class Pelota {
     }
 
     public void mover(Rectangle limites, boolean colisionR1, boolean colisionR2) {
-    	acelerar();
+    	
     	TableroJuego tj = TableroJuego.getInstance();
     	x+=dx;
         y+=dy;
