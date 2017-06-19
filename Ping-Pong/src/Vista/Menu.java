@@ -63,35 +63,35 @@ public class Menu extends JFrame {
 		ajustes.setBounds(370, 300, 150, 39);
 		panel.add(ajustes);
 
-		op1 = new JRadioButton("opcion1");
+		op1 = new JRadioButton("Human vs Human");
 		op1.setBackground(colorRojo);
 		op1.setForeground(Color.WHITE);
-		op1.setFont(new Font("Roboto", Font.BOLD, 30));
-		op1.setBounds(370, 210, 150, 45);
+		op1.setFont(new Font("Roboto", Font.BOLD, 26));
+		op1.setBounds(370, 210, 250, 45);
 		op1.setVisible(false);
 		panel.add(op1);
 
-		op2 = new JRadioButton("opcion2");
+		op2 = new JRadioButton("Human vs Agent");
 		op2.setBackground(colorRojo);
 		op2.setForeground(Color.WHITE);
-		op2.setFont(new Font("Roboto", Font.BOLD, 30));
-		op2.setBounds(370, 270, 150, 45);
+		op2.setFont(new Font("Roboto", Font.BOLD, 27));
+		op2.setBounds(370, 270, 250, 45);
 		op2.setVisible(false);
 		panel.add(op2);
 
-		op3 = new JRadioButton("opcion3");
+		op3 = new JRadioButton("Agent vs Human");
 		op3.setBackground(colorRojo);
 		op3.setForeground(Color.WHITE);
-		op3.setFont(new Font("Roboto", Font.BOLD, 30));
-		op3.setBounds(370, 330, 150, 45);
+		op3.setFont(new Font("Roboto", Font.BOLD, 27));
+		op3.setBounds(370, 330, 250, 45);
 		op3.setVisible(false);
 		panel.add(op3);
 
-		op4 = new JRadioButton("opcion4");
+		op4 = new JRadioButton("Agent vs Agent");
 		op4.setBackground(colorRojo);
 		op4.setForeground(Color.WHITE);
-		op4.setFont(new Font("Roboto", Font.BOLD, 30));
-		op4.setBounds(370, 390, 150, 45);
+		op4.setFont(new Font("Roboto", Font.BOLD, 27));
+		op4.setBounds(370, 390, 250, 45);
 		op4.setVisible(false);
 		panel.add(op4);
 
