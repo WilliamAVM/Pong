@@ -92,7 +92,7 @@ public class Menu extends JFrame {
 		op1.setBackground(colorRojo);
 		op1.setForeground(Color.WHITE);
 		op1.setFont(new Font("Roboto", Font.BOLD, 30));
-		op1.setBounds(370, 210, 150, 45);
+		op1.setBounds(310, 210, 280, 45);
 		op1.setVisible(false);
 		
 		panel.add(op1);
@@ -102,7 +102,7 @@ public class Menu extends JFrame {
 		op2.setBackground(colorRojo);
 		op2.setForeground(Color.WHITE);
 		op2.setFont(new Font("Roboto", Font.BOLD, 30));
-		op2.setBounds(370, 270, 150, 45);
+		op2.setBounds(310, 270, 270, 45);
 		op2.setVisible(false);
 		panel.add(op2);
 
@@ -113,7 +113,7 @@ public class Menu extends JFrame {
 		op3.setBackground(colorRojo);
 		op3.setForeground(Color.WHITE);
 		op3.setFont(new Font("Roboto", Font.BOLD, 30));
-		op3.setBounds(370, 330, 150, 45);
+		op3.setBounds(310, 330, 270, 45);
 		op3.setVisible(false);
 		panel.add(op3);
 
@@ -123,7 +123,7 @@ public class Menu extends JFrame {
 		op4.setBackground(colorRojo);
 		op4.setForeground(Color.WHITE);
 		op4.setFont(new Font("Roboto", Font.BOLD, 30));
-		op4.setBounds(370, 390, 150, 45);
+		op4.setBounds(320, 390, 250, 45);
 		op4.setVisible(false);
 		panel.add(op4);
 		
@@ -406,11 +406,10 @@ public class Menu extends JFrame {
 			}
 		}
 
-<<<<<<< HEAD
 		}
 	}
-=======
-	}
->>>>>>> d1c19c0a87226e9cb4d18c1e5b650d5cce2eeb46
 }
+	
+
+
 
