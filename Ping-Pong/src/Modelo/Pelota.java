@@ -11,18 +11,12 @@ public class Pelota {
 	
 	public int x, y,cx,cy,r=20;
     private int dx=1, dy=1;
-    private int dmax = 10;
-    private int velini = 1;
-    private int acel = 2;
-   
-    
-    
-    
-    private int t = 0;
-    private double dt = 0.0001;
-    private int inc=1;
-    private double tmax = 30;
-    private int inct = 1;
+    private int dmax = 2;
+    private double t = 0;
+    private double dt = 0.001;    
+    private double tmax = 10;
+    private int inct = 1; 
+ 
     
     
     public Pelota() {
@@ -49,47 +43,30 @@ public class Pelota {
     
     private void acelerar(){
     	if(t<tmax){
+    		System.out.println(""+t/inct);
     		t+=dt;
     		if(Math.abs(dy)<dmax){
     			if(dy>0){
-    				dy = dy + inc*t/inct;
+    				dy = dy + (int)(t/inct);
     			}else{
-    				dy = dy - inc*t/inct;
+    				dy = dy - (int)(t/inct);
     			}    				
     		}
     		if(Math.abs(dx)<dmax){
     			if(dx>0){
-    				dx = dx + inc*t/inct;
+    				dx = dx + (int)(t/inct);
     			}else{
-    				dx = dx - inc*t/inct;
+    				dx = dx - (int)(t/inct);
     			}    				
     		}
     	}else{
     		t = 0;
     	}
-    }
+    }  
     
-    
-    /*
-    private void acelerar(){
-    	t+=dt;
-    	if(Math.abs(dy)<dmax){
-    		if(dy>0)
-    			dy = (int) (velini*t+0.5*acel*t*t);
-    		else
-    			dy = (-1)*(int) (velini*t+0.5*acel*t*t);
-    		if(dx>0)
-    			dx = (int) (velini*t+0.5*acel*t*t);
-    		else
-    			dx = (-1)*(int) (velini*t+0.5*acel*t*t);
-    		System.out.println("funciona");
-    	}
-    	System.out.println(dx);
-    	
-    }
-*/
+ 
     public void mover(Rectangle limites, boolean colisionR1, boolean colisionR2) {
-    	acelerar();
+    	acelerar();    	
     	TableroJuego tj = TableroJuego.getInstance();
     	x+=dx;
         y+=dy;
